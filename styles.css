@@ -1,0 +1,8 @@
+main {
+    margin: 2rem;;
+}
+textarea {
+    width: 100%;
+    margin: auto;
+    display: block;
+}
