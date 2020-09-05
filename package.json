@@ -1,15 +1,15 @@
 {
-  "name": "electro-text-loader",
-  "productName": "ElectroLoader",
+  "name": "electro-text-reader",
+  "productName": "ElectroReader",
   "version": "1.2.0",
   "description": "Multi platform Text Loader",
   "main": "main.js",
   "scripts": {
     "make-mac": "npx @electron-forge/cli make --platform darwin",
     "make-linux": "npx @electron-forge/cli make --platform linux",
+    "make": "npx @electron-forge/cli make",
     "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
+    "package": "electron-forge package"    
   },
   "author": "Andres Acevedo",
   "license": "MIT",
@@ -21,20 +21,17 @@
     "@electron-forge/maker-zip": "^6.0.0-beta.53",
     "electron": "^9.2.1"
   },
-  "build": {
-    "appId": "com.electron.electronReact-name-your-app"
-  },
   "config": {
     "forge": {
       "packagerConfig": {
         "icon": "./build/icon",
-        "name": "electro-text-loader"
+        "name": "electro-text-reader"
       },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "forged_text"
+            "name": "electro-text-reader"
           }
         },
         {

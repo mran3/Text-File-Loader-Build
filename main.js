@@ -20,6 +20,8 @@ function createWindow () {
   win.loadFile('index.html')
 }
 
+// MARK: Entry point
+if(require('electron-squirrel-startup')) return;
 app.whenReady().then(createWindow)
 app.on(
   "window-all-closed",
