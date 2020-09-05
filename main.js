@@ -26,12 +26,6 @@ app.on(
   () => process.platform !== "darwin" && app.quit()
 );
 
-app.whenReady().then(createWindow)
-app.on(
-  "window-all-closed",
-  () => process.platform !== "darwin" && app.quit()
-);
-
 ipcMain.handle('read-file', async (ipcEvent, path) => {
   if (path != undefined) {
     console.log('Load: ' + path)
