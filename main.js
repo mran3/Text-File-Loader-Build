@@ -3,36 +3,28 @@ const fs = require('fs').promises;
 const path = require('path');
 const url = require('url');
 
-
-function createWindow() {
-  console.log('dir name:', __dirname)
-  console.log('app getPath:', app.getAppPath())
-
+function createWindow () {
   // Create the browser window.
   const win = new BrowserWindow({
     width: 800,
     height: 600,
+    icon: path.join(app.getAppPath(), 'build/icon.png'),
     webPreferences: {
       worldSafeExecuteJavaScript: true,
       contextIsolation: true,
-      preload: app.getAppPath() + 'preload.js'
+      preload: path.join(app.getAppPath(), 'preload.js')
     }
   })
 
   // and load the index.html of the app.
-  
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file',
-    slashes: true
- }));
-  // //This is figuring out white screen issue.
-  // win.once('ready-to-show', () => {
-
-  //   win.show();
-
-  // })
+  win.loadFile('index.html')
 }
+
+app.whenReady().then(createWindow)
+app.on(
+  "window-all-closed",
+  () => process.platform !== "darwin" && app.quit()
+);
 
 app.whenReady().then(createWindow)
 app.on(
