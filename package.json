@@ -7,9 +7,9 @@
   "scripts": {
     "make-mac": "npx @electron-forge/cli make --platform darwin",
     "make-linux": "npx @electron-forge/cli make --platform linux",
+    "make": "npx @electron-forge/cli make",
     "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
+    "package": "electron-forge package"    
   },
   "author": "Andres Acevedo",
   "license": "MIT",
@@ -21,16 +21,12 @@
     "@electron-forge/maker-zip": "^6.0.0-beta.53",
     "electron": "^9.2.1"
   },
-  "build": {
-    "squirrel": {
-      "msi": true
-    }
-  },
   "config": {
     "forge": {
       "packagerConfig": {
         "icon": "./build/icon",
-        "name": "electro-text-reader"
+        "name": "ElectroReader",
+        "executableName": "electro-text-reader"        
       },
       "makers": [
         {
